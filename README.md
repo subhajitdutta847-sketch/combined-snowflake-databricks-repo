@@ -234,7 +234,7 @@ The final enriched dataset stored in Delta Lake contains the following fields:
 
 ## 📁 Project Structure
 
-
+```bash
 databricks-pipeline/
 │
 ├── notebooks/
@@ -246,6 +246,7 @@ databricks-pipeline/
 │ ├── population_enriched/
 │
 ├── README.md
+```
 
 ---
 
