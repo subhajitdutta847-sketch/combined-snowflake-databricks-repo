@@ -86,3 +86,8 @@ warehouse = "YOUR_WAREHOUSE"
 database = "YOUR_DATABASE"
 schema = "YOUR_SCHEMA"
 
+---
+
+# 🚀 Databricks Data Engineering Pipeline (S3 + Delta Lake)
+
+A cloud-based data engineering pipeline built using Databricks (Apache Spark) and AWS S3, designed to process, transform, and enrich country-level economic and population data.
