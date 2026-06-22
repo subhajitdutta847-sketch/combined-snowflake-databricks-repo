@@ -54,6 +54,7 @@ Streamlit UI Dashboard
 ---
 
 ## 📁 Project Structure
+```bash
 snowflake-gold-dashboard/
 │
 ├── app.py # Main Streamlit application
@@ -61,7 +62,7 @@ snowflake-gold-dashboard/
 ├── .streamlit/
 │ └── secrets.toml # Snowflake credentials (NOT pushed to GitHub)
 ├── README.md # Project documentation
-
+```
 
 ---
 
