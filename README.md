@@ -85,3 +85,56 @@ role = "YOUR_ROLE"
 warehouse = "YOUR_WAREHOUSE"
 database = "YOUR_DATABASE"
 schema = "YOUR_SCHEMA"
+
+# 🚀 Databricks Dashboard
+
+# 🌍 Economic Data Pipeline (Databricks + AWS S3 + Delta Lake)
+
+This project builds an end-to-end data pipeline that processes economic indicators by country and year, enriches them with country metadata, and stores them in a Delta Lake for analytics and dashboards.
+
+---
+
+## 📊 Dataset Overview
+
+### Economies Table
+Contains macroeconomic indicators:
+
+- GDP per capita  
+- Inflation rate  
+- Gross savings  
+- Imports / exports  
+- Unemployment rate  
+- Yearly data per country
+
+### Countries Table
+Contains metadata:
+
+- Country name  
+- Continent  
+- Region  
+- Capital  
+- Government form  
+- Surface area  
+
+---
+
+## 🔗 Data Pipeline Flow
+
+1. Raw data stored in AWS S3
+2. Load into Spark DataFrames
+3. Join economies + countries on country code
+4. Write enriched dataset to Delta Lake
+5. Create Databricks table for SQL querying
+
+---
+
+## ⚙️ Tech Stack
+
+- Apache Spark
+- Delta Lake
+- Databricks
+- AWS S3
+- Python
+- Streamlit (for dashboard)
+
+---
