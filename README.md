@@ -148,4 +148,21 @@ Contains country metadata:
 Contains population statistics by country and year:
 
 - Population values over time  
-- Country-wise yearly population trends  
+- Country-wise yearly population trends
+
+## 🔗 Data Pipeline Steps
+
+### 1. Read data from S3
+
+```python
+economies_df = spark.read.csv(
+    "s3://srh-data-engineering-project-storage/raw/economies/",
+    header=True,
+    inferSchema=True
+)
+
+countries_df = spark.read.csv(
+    "s3://srh-data-engineering-project-storage/raw/countries/",
+    header=True,
+    inferSchema=True
+)
