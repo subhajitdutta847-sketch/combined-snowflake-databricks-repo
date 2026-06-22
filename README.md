@@ -102,3 +102,15 @@ This project builds an end-to-end ETL pipeline in Databricks that:
 - Creates enriched datasets  
 - Stores output in Delta Lake format  
 - Makes data available for analytics and dashboards
+
+## 🏗️ Architecture
+
+AWS S3 (Raw Data)
+↓
+Databricks (Spark ETL)
+↓
+Data Transformation + Joins
+↓
+Delta Lake (Enriched Tables)
+↓
+Databricks SQL / Streamlit Dashboard
