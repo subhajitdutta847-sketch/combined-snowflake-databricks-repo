@@ -86,6 +86,8 @@ warehouse = "YOUR_WAREHOUSE"
 database = "YOUR_DATABASE"
 schema = "YOUR_SCHEMA"
 
+---
+
 # 🚀 Databricks Dashboard
 
 # 🌍 Economic Data Pipeline (Databricks + AWS S3 + Delta Lake)
