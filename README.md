@@ -201,4 +201,54 @@ The Delta Lake output is registered as a **Databricks table**, making it accessi
 CREATE TABLE IF NOT EXISTS economies_enriched
 USING DELTA
 LOCATION 's3://srh-data-engineering-project-storage/delta/economies_enriched/';
+```
 
+---
+
+## 📈 Output Table Schema
+
+The final enriched dataset stored in Delta Lake contains the following fields:
+
+- country_code  
+- country_name  
+- continent  
+- region  
+- year  
+- gdp_percapita  
+- inflation_rate  
+- unemployment_rate  
+- imports  
+- exports
+
+---
+
+## ⚙️ Tech Stack
+
+- Apache Spark (Databricks)  
+- Delta Lake  
+- AWS S3  
+- Python  
+- SQL (Databricks SQL)
+
+---
+
+## 📁 Project Structure
+
+
+databricks-pipeline/
+│
+├── notebooks/
+│ ├── economies_pipeline.py
+│ ├── population_pipeline.py
+│
+├── delta_tables/
+│ ├── economies_enriched/
+│ ├── population_enriched/
+│
+├── README.md
+
+---
+
+## 👨‍💻 Author
+
+Subhajit Dutta & Syed Afnan Hasan
