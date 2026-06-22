@@ -8,7 +8,7 @@ A modern **data analytics dashboard built with Streamlit and Snowflake**, design
 
 ## 📌 Project Overview
 
-This project is an end-to-end data application that connects to **Snowflake**, reads processed data from a Gold layer table, and displays insights in an interactive **Streamlit dashboard**.
+This project is an end-to-end data application that connects to **Snowflake**, reads processed data from a Gold layer table, and displays insights in an interactive **Streamlit dashboard**. https://app-gold-dashboard-jatlhyuulappt6g8g4rszvv.streamlit.app/
 
 It demonstrates:
 - Cloud data warehouse integration (Snowflake)
