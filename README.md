@@ -91,3 +91,14 @@ schema = "YOUR_SCHEMA"
 # 🚀 Databricks Data Engineering Pipeline (S3 + Delta Lake)
 
 A cloud-based data engineering pipeline built using Databricks (Apache Spark) and AWS S3, designed to process, transform, and enrich country-level economic and population data.
+
+## 📌 Project Overview
+
+This project builds an end-to-end ETL pipeline in Databricks that:
+
+- Reads raw CSV data from AWS S3  
+- Cleans and transforms datasets using Spark  
+- Joins multiple datasets (fact + dimension model)  
+- Creates enriched datasets  
+- Stores output in Delta Lake format  
+- Makes data available for analytics and dashboards
