@@ -85,7 +85,7 @@ role = "YOUR_ROLE"
 warehouse = "YOUR_WAREHOUSE"
 database = "YOUR_DATABASE"
 schema = "YOUR_SCHEMA"
-
+```
 ---
 
 # 🚀 Databricks Data Engineering Pipeline (S3 + Delta Lake)
