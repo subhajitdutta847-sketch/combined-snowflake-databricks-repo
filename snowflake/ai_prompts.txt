@@ -1,0 +1,215 @@
+# Snowflake Gold Dashboard – Project Development Log
+
+## Project Setup
+
+1. Create Snowflake database, schemas, and warehouse.
+2. Upload source datasets:
+
+   * countries.csv
+   * economies.csv
+   * populations.csv
+
+## Data Ingestion
+
+### Create File Format
+
+```sql
+CREATE OR REPLACE FILE FORMAT MY_CSV_FORMAT
+TYPE = CSV
+SKIP_HEADER = 1
+FIELD_OPTIONALLY_ENCLOSED_BY = '"';
+```
+
+### Create Stage
+
+Create internal stage and upload CSV files.
+
+### Load RAW Tables
+
+#### COUNTRIES
+
+Create RAW.COUNTRIES and load countries.csv.
+
+#### ECONOMIES
+
+Create RAW.ECONOMIES and load economies.csv.
+
+#### POPULATIONS
+
+```sql
+CREATE OR REPLACE TABLE RAW.POPULATIONS (
+    POP_ID NUMBER,
+    COUNTRY_CODE STRING,
+    YEAR NUMBER,
+    FERTILITY_RATE FLOAT,
+    LIFE_EXPECTANCY FLOAT,
+    SIZE NUMBER
+);
+```
+
+Load data:
+
+```sql
+COPY INTO RAW.POPULATIONS
+FROM @POPULATION_STAGE
+FILE_FORMAT = (
+    TYPE = CSV
+    SKIP_HEADER = 1
+    FIELD_OPTIONALLY_ENCLOSED_BY = '"'
+);
+```
+
+Validation:
+
+```sql
+SELECT COUNT(*) FROM RAW.POPULATIONS;
+```
+
+Expected result:
+
+POPULATIONS loaded
+
+## File Format Cleanup
+
+Check existing file formats:
+
+```sql
+SHOW FILE FORMATS;
+```
+
+Remove unused file format:
+
+```sql
+DROP FILE FORMAT MY_CSV_FORMAT;
+```
+
+## SILVER Layer Preparation
+
+Check imported column names:
+
+```sql
+DESC TABLE RAW.COUNTRIES;
+DESC TABLE RAW.ECONOMIES;
+DESC TABLE RAW.POPULATIONS;
+```
+
+Identify:
+
+* Country code column in COUNTRIES
+* Country code column in ECONOMIES
+* Country code column in POPULATIONS
+
+## Streamlit Application
+
+### Snowflake Connection
+
+Replace:
+
+```python
+session = Session.builder.configs(connection_parameters).create()
+```
+
+with:
+
+```python
+try:
+    session = Session.builder.configs(connection_parameters).create()
+    st.success("Connected successfully")
+except Exception as e:
+    st.exception(e)
+    st.stop()
+```
+
+### Data Loading
+
+```python
+df = session.sql(
+    "SELECT * FROM GOLD_COUNTRY_COMPARISON"
+).to_pandas()
+```
+
+## Streamlit Deployment Debugging
+
+### Error Encountered
+
+```text
+HttpError: 290404 (08001)
+404 Not Found
+```
+
+Cause:
+Incorrect Snowflake account identifier.
+
+### Investigation
+
+Executed:
+
+```sql
+SELECT CURRENT_ORGANIZATION_NAME(),
+       CURRENT_ACCOUNT_NAME(),
+       CURRENT_REGION();
+```
+
+Result:
+
+Organization: RMBNDYR
+Account: MI13930
+Region: eu-central-1
+
+````
+
+### Connection Parameter Update
+
+Replace:
+
+```python
+"account": "MU09414"
+````
+
+with:
+
+```python
+"account": "MI13930.eu-central-1"
+```
+
+or use the exact Account Identifier from Snowflake → View Account Details.
+
+## GitHub Tasks
+
+### Share Repository
+
+Share repository URL with collaborators.
+
+### Create Folder
+
+Create folder named snowflake:
+
+```text
+snowflake/README.md
+```
+
+or locally:
+
+```bash
+mkdir snowflake
+```
+
+Commit and push changes.
+
+## Documentation
+
+Create a detailed README including:
+
+* Project overview
+* Architecture
+* Tech stack
+* Setup instructions
+* Snowflake integration
+* Streamlit deployment
+* Data source citation
+
+## Data Source
+
+DataCamp – Joining Data in SQL
+
+https://app.datacamp.com/learn/courses/joining-data-in-sql
