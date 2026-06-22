@@ -179,3 +179,26 @@ joined_df = economies_df.join(
 )
 ```
 
+---
+
+### 3. Write to Delta Lake
+
+The transformed and joined dataset is stored in **Delta Lake format** on AWS S3. This ensures ACID transactions, scalability, and efficient querying in Databricks.
+
+```python
+joined_df.write.format("delta") \
+    .mode("overwrite") \
+    .save("s3://srh-data-engineering-project-storage/delta/economies_enriched/")
+```
+
+---
+
+### 4. Register as Databricks Table
+
+The Delta Lake output is registered as a **Databricks table**, making it accessible for SQL queries, analytics, and dashboards.
+
+```sql
+CREATE TABLE IF NOT EXISTS economies_enriched
+USING DELTA
+LOCATION 's3://srh-data-engineering-project-storage/delta/economies_enriched/';
+
