@@ -1,0 +1,18 @@
+INSERT INTO RAW.POPULATIONS
+(
+    POP_ID,
+    COUNTRY_CODE,
+    YEAR,
+    FERTILITY_RATE,
+    LIFE_EXPECTANCY,
+    SIZE
+)
+VALUES
+(
+    999999,
+    'DEU',
+    2015,
+    2.5,
+    70,
+    2000000000
+);
