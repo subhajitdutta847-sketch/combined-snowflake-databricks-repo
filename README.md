@@ -166,3 +166,16 @@ countries_df = spark.read.csv(
     header=True,
     inferSchema=True
 )
+```
+---
+
+### 2. Join datasets (Fact + Dimension)
+
+```python
+joined_df = economies_df.join(
+    countries_df,
+    economies_df["country_code"] == countries_df["code"],
+    "left"
+)
+```
+
