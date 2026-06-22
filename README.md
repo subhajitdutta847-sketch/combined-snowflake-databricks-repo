@@ -114,3 +114,38 @@ Data Transformation + Joins
 Delta Lake (Enriched Tables)
 ↓
 Databricks SQL Dashboard
+
+## 📊 Datasets
+
+### 1. Economies Dataset (Fact Table)
+
+Contains key economic indicators:
+
+- GDP per capita  
+- Inflation rate  
+- Gross savings  
+- Imports / exports  
+- Unemployment rate  
+- Yearly country-level data  
+
+---
+
+### 2. Countries Dataset (Dimension Table)
+
+Contains country metadata:
+
+- Country name  
+- Continent  
+- Region  
+- Capital city  
+- Government form  
+- Surface area  
+
+---
+
+### 3. Population Dataset
+
+Contains population statistics by country and year:
+
+- Population values over time  
+- Country-wise yearly population trends  
