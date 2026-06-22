@@ -113,4 +113,4 @@ Data Transformation + Joins
 ↓
 Delta Lake (Enriched Tables)
 ↓
-Databricks SQL / Streamlit Dashboard
+Databricks SQL Dashboard
